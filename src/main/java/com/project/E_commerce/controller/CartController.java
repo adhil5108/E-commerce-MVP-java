@@ -23,6 +23,9 @@ public class CartController {
     @PostMapping("/add/{productId}")
     public Cart addToCart(@PathVariable Long productId, @RequestParam(defaultValue = "1") int quantity ) {
         User user = userService.getCurrentUser();
+        if(quantity<=0){
+            throw new RuntimeException("quantity cant be less than 1");
+        }
         return cartService.addToCart(user, productId, quantity);
     }
 
@@ -32,11 +35,7 @@ public class CartController {
         return cartService.getCartItems(user);
     }
 
-    @PutMapping("/update/{itemId}")
-    public Cart updateItem(@PathVariable Long itemId, @RequestParam int quantity) {
-        User user = userService.getCurrentUser();
-        return cartService.updateQuantity(user, itemId, quantity);
-    }
+
 
     @DeleteMapping("/remove/{itemId}")
     public Cart removeItem(@PathVariable Long itemId) {
