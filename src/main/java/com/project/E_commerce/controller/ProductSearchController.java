@@ -20,16 +20,21 @@ public class ProductSearchController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> searchByName(
-            @RequestParam String name
-    ) {
+    public ResponseEntity<List<Product>> searchByName(@RequestParam String name) {
+
+        String search = name.trim().toLowerCase();
+
         List<Product> products = productRepo.findAll()
                 .stream()
-                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .filter(p -> {
+                    if (p.getName() == null) return false;
+                    return p.getName().toLowerCase().contains(search);
+                })
                 .toList();
 
         return ResponseEntity.ok(products);
     }
+
 
 
     @GetMapping("/autocomplete")
