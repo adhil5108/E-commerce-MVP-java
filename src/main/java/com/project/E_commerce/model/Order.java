@@ -1,5 +1,6 @@
 package com.project.E_commerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Order {
     private Long id;
 
     @ManyToOne
+    @JsonIgnoreProperties({"password"})
     private User user;
 
     private LocalDateTime orderDate;
