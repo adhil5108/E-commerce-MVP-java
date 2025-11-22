@@ -32,7 +32,7 @@ public class AuthController {
         }
 
          userService.register(user);
-        return "user : "+user.getUsername()+" registered succesfully ";
+        return "user : "+user.getUsername()+" registered successfully ";
     }
 
     @PostMapping("/login")
