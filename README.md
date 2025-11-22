@@ -47,14 +47,14 @@ mvn test
 
 
 # Important Endpoints
-POST /api/auth/register
-POST /api/auth/login
-GET/POST/PUT/DELETE /api/v1/products
-POST /api/v1/products/import   (Excel upload)
-GET /api/v1/products/export    (Download Excel)
-GET /api/v1/products/notifications  (SSE stream)
-POST /api/v1/cart
-POST /api/v1/orders/checkout
+-POST /api/auth/register
+-POST /api/auth/login
+-GET/POST/PUT/DELETE /api/v1/products
+-POST /api/v1/products/import   (Excel upload)
+-GET /api/v1/products/export    (Download Excel)
+-GET /api/v1/products/notifications  (SSE stream)
+-POST /api/v1/cart
+-POST /api/v1/orders/checkout
 
 
 # Tech Stack
