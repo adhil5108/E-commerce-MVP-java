@@ -42,7 +42,7 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
             );
             String token = jwtUtil.generateToken(user.getUsername());
-            return Map.of("token", token);
+            return Map.of("token", token,"Expiration","1 day");
         } catch (AuthenticationException e) {
             throw new RuntimeException("Invalid credentials");
         }
