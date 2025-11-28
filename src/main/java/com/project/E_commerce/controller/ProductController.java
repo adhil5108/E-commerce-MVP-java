@@ -45,7 +45,6 @@ public class ProductController {
 
     @Autowired
 
-
     @GetMapping
     public List<Product> get(){
         return productService.getAllProducts();
