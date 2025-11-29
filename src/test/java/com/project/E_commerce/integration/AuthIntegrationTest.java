@@ -52,24 +52,21 @@ class AuthIntegrationTest {
     @Test
     void loginUser_success() {
 
-        // Seed a test user manually
         User u = new User();
         u.setUsername("loginuser");
         u.setPassword(new BCryptPasswordEncoder().encode("loginpass"));
         u.setRole("USER");
         userRepository.save(u);
 
-        // Login request
         Map<String, String> request = Map.of(
                 "username", "loginuser",
                 "password", "loginpass"
         );
 
-        // Login returns JSON token → still Map.class
         ResponseEntity<Map> response =
                 restTemplate.postForEntity("/api/auth/login", request, Map.class);
 
-        // Assertions
+
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).containsKey("token");
         assertThat(response.getBody().get("token")).isNotNull();
