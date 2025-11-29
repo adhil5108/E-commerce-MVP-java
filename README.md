@@ -29,18 +29,13 @@ Checkout with order creation
 Subscribe notification stream
 
 
-# How to Run
+How to Run
+Live Hosted Version (Recommended)
 
-## Using Docker
-docker-compose up --build
+The backend is already deployed — just open Swagger to test all APIs:
 
-## Manual Run
-mvn clean install
-mvn spring-boot:run
-
-
-# Swagger Documentation
-http://localhost:8080/swagger-ui/index.html
+🔗 Live Swagger:
+https://ecommerce-backend-java.onrender.com/swagger-ui/index.html
 
 # Tests
 mvn test
