@@ -1,64 +1,86 @@
-# E-Commerce Backend (Spring Boot)
+# 🛒 E-Commerce Backend API (Spring Boot)
 
-Spring Boot REST API
-JWT Authentication (Register / Login)
-Role Based Access (Admin / User)
-Product CRUD + Search
-Shopping Cart (per-user)
-Checkout + Payment Simulation
-Excel Import / Export (Inventory Management)
-Real-time Product Notification (Server-Sent Events)
-Swagger API Documentation
-Docker Compose (PostgreSQL + Redis)
-JUnit + Mockito + Integration Tests
-CI/CD with GitHub Actions (Build + Test + Push Docker Image)
+A production-style e-commerce backend built using **Java & Spring Boot**, designed to demonstrate secure API development, scalable architecture, and real-world backend workflows.
 
+The system supports authentication, product management, cart operations, checkout simulation, real-time notifications, and inventory management.
 
-# Admin Features
-Admin-only APIs using @PreAuthorize("hasRole('ADMIN')")
-Bulk product upload (.xlsx)
-Excel validation
-Product add notification event stream
+---
 
+## Features
 
-# User Features
-Browse products
-Add / Update / Remove cart items
-User-based cart stored in DB
-Checkout with order creation
-Subscribe notification stream
+###  Authentication & Security
+- JWT Authentication (Register / Login)
+- Role-based access control (Admin / User)
+- Secure endpoints using Spring Security
 
+###  Product Management
+- Product CRUD operations
+- Product search functionality
+- Bulk product import via Excel (.xlsx)
+- Excel export for inventory management
 
-How to Run
-Live Hosted Version (Recommended)
+###  Shopping & Orders
+- Per-user shopping cart
+- Add / update / remove cart items
+- Checkout workflow with order creation
+- Payment simulation
 
-The backend is already deployed — just open Swagger to test all APIs:
+###  Real-Time Updates
+- Server-Sent Events (SSE) for product notifications
 
-🔗 Live Swagger:
-https://ecommerce-backend-java.onrender.com/swagger-ui/index.html
+###  Quality & DevOps
+- Unit, Integration, and API testing
+- Swagger/OpenAPI documentation
+- Dockerized services
+- CI/CD using GitHub Actions
 
-# Tests
-mvn test
+---
 
+##  Admin Features
 
-# Important Endpoints
--POST /api/auth/register
--POST /api/auth/login
--GET/POST/PUT/DELETE /api/v1/products
--POST /api/v1/products/import   (Excel upload)
--GET /api/v1/products/export    (Download Excel)
--GET /api/v1/products/notifications  (SSE stream)
--POST /api/v1/cart
--POST /api/v1/orders/checkout
+- Admin-only APIs :
+- Bulk product upload via Excel
+- Data validation during import
+- Real-time product notification stream
 
+---
 
-# Tech Stack
-Spring Boot 3
-Spring Security + JWT
-PostgreSQL
-Redis
-Docker + Docker Compose
-JUnit 5 + Mockito
-Swagger / OpenAPI
-Apache POI (Excel)
-GitHub Actions (CI/CD)
+##  User Features
+
+- Browse and search products
+- Manage personal shopping cart
+- Checkout and order creation
+- Subscribe to product notification stream
+
+---
+
+##  Live Demo
+
+⚠️ The backend service is deployed, but the hosted database instance may periodically expire due to free-tier hosting limits.
+
+You can still explore API structure via Swagger: https://ecommerce-backend-java.onrender.com/swagger-ui/index.html
+
+---
+
+##  Architecture
+
+The application follows a layered architecture:
+
+- **Controller Layer** — REST endpoints
+- **Service Layer** — Business logic
+- **Repository Layer** — Database interaction
+- **Security Layer** — JWT authentication & authorization
+
+Designed for scalability and maintainability.
+
+---
+
+##  Running Locally
+
+### Start Application
+
+```bash
+git clone https://github.com/adhil5108/E-commerce.git
+cd E-commerce
+
+docker-compose up --build
